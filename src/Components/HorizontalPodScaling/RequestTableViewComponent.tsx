@@ -24,7 +24,7 @@ const randomIntFromInterval = (min: number, max: number) => { // min and max inc
 
 const RequestTableViewComponent = (props: any) => {
 
-    const [tableData, setTableData] = useState<any[]>([])
+    const [tableData, setTableData] = useState<any[]>([]);
 
     useEffect(() => {
         console.log("RequestTableViewComponent useEffect");
@@ -43,7 +43,7 @@ const RequestTableViewComponent = (props: any) => {
             }
             setTableData(newTableData)
         }
-    }, [props.testContext])
+    }, [props.testContext, props.requestContext])
 
     return (
         <Table striped bordered hover>
@@ -54,6 +54,7 @@ const RequestTableViewComponent = (props: any) => {
                     <th style={{ width: '120px' }}>Delay</th>
                     <th style={{ width: '250px' }}>Request Status</th>
                     <th>Request Response</th>
+                    <th>Request Track</th>
                 </tr>
             </thead>
             {

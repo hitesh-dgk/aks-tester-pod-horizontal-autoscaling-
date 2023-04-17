@@ -12,10 +12,13 @@ const HorizontalPodScaling = () => {
     // </h1>
 
     const [testContext, setTextContext] = useState(null);
+    const [requestContext, setRequestContext] = useState<number>(0);
+
 
     const setupTestContextHandler = (response: any) => {
         console.log("inside setupTestContextHandler");
         console.log(response);
+        setRequestContext(requestContext+1);
         setTextContext(response);
     }
 
@@ -27,7 +30,7 @@ const HorizontalPodScaling = () => {
         </Card>
 
         <TestCaseFormComponent updateTextContext={setupTestContextHandler}/>
-        <RequestTableViewComponent testContext={testContext}/>
+        <RequestTableViewComponent testContext={testContext} requestContext={requestContext}/>
 
     </>
 
